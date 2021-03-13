@@ -12,8 +12,20 @@ public class Account {
 
     private User holder;
 
-    private ArrayList<Transaction> transaction;
+    private ArrayList<Transaction> transactions;
+
+    public Account(String accountName, User holder, Bank theBank) {
+        this.accountName = accountName;
+        this.holder = holder;
+
+        // get new account UUID
+        this.uuid=theBank.getNewAccountUUID();
+        this.transactions=new ArrayList<Transaction>();
 
 
+    }
 
+    public String getUUId() {
+        return this.uuid;
+    }
 }
