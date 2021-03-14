@@ -46,7 +46,7 @@ public class ATM {
     }
     public  static void printUserMenu(User theUser, Scanner sc) {
 
-        theUser.printAccountSummary();
+        theUser.printAccountsSummary();
 
         int choice;
         do{
@@ -84,16 +84,27 @@ public class ATM {
         }
 
     }
+    private static void showTransHistory(User theUser, Scanner sc) {
+         int account;
+         do{
+             System.out.printf("Enter the number (1-%d) of the account\n"+
+                     "whose transaction you want to see: ",theUser.numAccounts());
+             account=sc.nextInt()-1;
+             if(account<0 || account >= theUser.numAccounts()){
+                 System.out.println("Invalid Account. Please try again.");
+             }
+         }while(account<0 || account >= theUser.numAccounts());
+         theUser.printAcctTransHistory(account);
+    }
 
     private static void transferFunds(User theUser, Scanner sc) {
     }
-
+    private static void withdrawFunds(User theUser, Scanner sc) {
+    }
     private static void depositFunds(User theUser, Scanner sc) {
     }
 
-    private static void withdrawFunds(User theUser, Scanner sc) {
-    }
 
-    private static void showTransHistory(User theUser, Scanner sc) {
-    }
+
+
 }
