@@ -37,7 +37,7 @@ public class Account {
         }
     }
 
-    private double getBalance() {
+    double getBalance() {
         double balance=0;
         for(Transaction t : this.transactions){
             balance += t.getAmount();
@@ -51,5 +51,10 @@ public class Account {
             System.out.print(this.transactions.get(t).getSummaryline());
         }
         System.out.println();
+    }
+
+    public void addTransaction(double amount, String memo) {
+        Transaction newTransaction=new Transaction(amount, memo, this);
+        this.transactions.add(newTransaction);
     }
 }
