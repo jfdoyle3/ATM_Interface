@@ -29,13 +29,13 @@ public class User {
         }
 
         // get a new, unique universal ID (UUID) for the user
-        this.uuid=theBank.getNewUserUUID();
+        this.uuid = theBank.getNewUserUUID();
 
-        // create empty acount list
-        this.accounts= new ArrayList<Account>();
+        // create empty account list
+        this.accounts = new ArrayList<Account>();
 
         //print log message
-        System.out.printf("New user: %s, %s with ID %s created.\n", lastName,firstName,this.uuid);
+        System.out.printf("New user: %s, %s with ID %s created.\n", lastName, firstName, this.uuid);
 
     }
 
@@ -50,7 +50,7 @@ public class User {
     public boolean validatePin(String pin) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            return MessageDigest.isEqual(md.digest(pin.getBytes()),this.pinHash);
+            return MessageDigest.isEqual(md.digest(pin.getBytes()), this.pinHash);
         } catch (NoSuchAlgorithmException e) {
             System.err.println("error, caught NoSuchAlgorithmException");
             e.printStackTrace();
@@ -66,9 +66,9 @@ public class User {
 
     public void printAccountsSummary() {
 
-        System.out.printf("\n\n%s's accounts summary\n",this.firstName);
-        for (int a=0; a<this.accounts.size(); a++){
-            System.out.printf("  %d) %s\n",a+1,this.accounts.get(a).getSummaryLine());
+        System.out.printf("\n\n%s's accounts summary\n", this.firstName);
+        for (int a = 0; a < this.accounts.size(); a++) {
+            System.out.printf("  %d) %s\n", a + 1, this.accounts.get(a).getSummaryLine());
         }
         System.out.println();
 
