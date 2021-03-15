@@ -48,7 +48,7 @@ public class Account {
     public void printTransHistory() {
         System.out.printf("\nTransaction history for account %s\n",this.uuid);
         for(int t=this.transactions.size()-1; t>=0; t--){
-            System.out.print(this.transactions.get(t).getSummaryline());
+            System.out.println(this.transactions.get(t).getSummaryLine());
         }
         System.out.println();
     }
